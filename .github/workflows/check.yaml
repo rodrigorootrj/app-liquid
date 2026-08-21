@@ -28,23 +28,9 @@ jobs:
         if: ${{ env.MY_SECRET != '' }}
         run: echo "MY_SECRET existe"
 
-
-      - name: Validate variables
+      - name: Variable content
         env:
-          VAR1: ${{ vars.DOCKER_PROJETO }}
-          VAR2: ${{ vars.DOCKER_REPO }}
-          VAR3: ${{ vars.DOCKER_REPO }}
-          VAR4: ${{ vars.DOCKER_REPO }}
-          run: |
-            missing=0
+          VAR: ${{ vars.REGISTRY }}
+        if: ${{ env.VAR != '' }}
+        run: echo ${{ vars.VAR }}
 
-            for var in VAR1 VAR2 VAR3 VAR4; do
-              if [ -z "${!var}" ]; then
-                echo "ERROR: $var não definida"
-                missing=1
-              else
-                echo "OK: $var definida"
-              fi
-            done
-
-            exit $missing          
