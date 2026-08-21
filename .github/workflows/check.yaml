@@ -31,7 +31,7 @@ jobs:
       - name: Teste de atribuicao II
         env:
           VAR: ${{ vars.DOCKER_USR }}
-        run: echo env.VAR
+        run: echo $VAR
 # 
       # - name: Variable content
         # if: ${{ vars.REGISTRY != '' }}
