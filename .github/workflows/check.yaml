@@ -34,3 +34,6 @@ jobs:
         if: ${{ env.VAR != '' }}
         run: echo ${{ vars.VAR }}
 
+      - name: Variable content
+        if: ${{ env.VAR != '' }}
+        run: echo ${{ vars.REGISTRY }}
