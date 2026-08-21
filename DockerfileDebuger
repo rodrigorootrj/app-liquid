@@ -1,0 +1,16 @@
+FROM python@sha256:3996a4b86240b6d41b57055cd7f626cbb15e2baef149b4fd841e04fec7308290 AS compile-image
+RUN mkdir /app /assets
+RUN apk add --no-cache \
+    build-base \
+    linux-headers \
+    python3-dev \
+    pcre-dev \
+    libffi-dev \
+    pcre
+ 
+WORKDIR /app
+COPY src/ .
+RUN python3 -m venv /asset/ && /asset/bin/python -m pip install --upgrade pip
+COPY inventario/requirements.txt /app
+RUN /asset/bin/pip install -r requirements.txt
+CMD ["/bin/sh","operador.sh"]

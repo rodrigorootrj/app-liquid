@@ -1,0 +1,27 @@
+version: '3'
+services:
+  web:
+    build:
+      context: .          
+      args:
+        - "DB_USR:${DB_USR}"
+        - "DB_HOST:${DB_HOST}"
+        - "DB_PASS:${DB_PASS}"
+        - "DB_NAME:${DB_NAME}"
+    ports:
+      - 5000:5000
+    volumes:
+    - ${PWD}/templates/:/opt/app/templates
+
+  db:
+    image: mysql
+    restart: always
+    environment:
+      - MYSQL_USER=${DB_USR}
+      - MYSQL_DATABASE=${DB_NAME}
+      - MYSQL_PASSWORD=${DB_PASS}
+      - MYSQL_ROOT_PASSWORD=rootpass
+    ports:
+      - 6000:3306
+    volumes:
+      - ${PWD}/volumes/db/:/var/lib/mysql     
