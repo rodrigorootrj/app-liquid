@@ -20,7 +20,9 @@ jobs:
         run: echo "MY_SECRET não existe"
 
       - name: Secret not found
-        if: ${{ secrets.TK_GITHUB_REGISTRY != '' }}
+        env:
+          MY_SECRET: ${{ secrets.TK_GITHUB_REGISTRY }}
+        if: ${{ secrets.TK_GITHUB_REGISTRY != '' }}        
         run: echo "MY_SECRET existe"
 
 
