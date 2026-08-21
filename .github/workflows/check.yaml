@@ -20,9 +20,7 @@ jobs:
         run: echo "MY_SECRET não existe"
 
       - name: Secret not found
-        env:
-          MY_SECRET: ${{ secrets.TK_GITHUB_REGISTRY }}
-        if: ${{ env.MY_SECRET != '' }}
+        if: ${{ secrets.TK_GITHUB_REGISTRY != '' }}
         run: echo "MY_SECRET existe"
 
 
@@ -33,7 +31,7 @@ jobs:
       - name: Teste de atribuicao II
         env:
           VAR: ${{ vars.DOCKER_USR }}
-        run: echo ${{ env.VAR }}
+        run: echo env.VAR
 # 
       # - name: Variable content
         # if: ${{ vars.REGISTRY != '' }}
