@@ -15,3 +15,4 @@ CMD ["python3", "main.py"]git:
 ```
 TODO:
 docker-compose
+ 
