@@ -32,8 +32,8 @@ jobs:
         env:
           VAR1: ${{ vars.DOCKER_PROJETO }}
           VAR2: ${{ vars.DOCKER_REPO }}
-          VAR3: ${{ vars.DOCKER_USR }}
-          VAR4: ${{ vars.REGISTRY }}
+          VAR3: ${{ vars.DOCKER_REPO }}
+          VAR4: ${{ vars.DOCKER_REPO }}
           run: |
             missing=0
 
