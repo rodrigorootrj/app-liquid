@@ -18,4 +18,4 @@ jobs:
       dockerfile: Dockerfile
       REGISTRY_USERNAME: ${{ vars.DOCKER_USR }}
     secrets:
-      REGISTRY_PASSWORD: ${{ secrets.TK_GITHUB_REGISTRY }}
+      REGISTRY_PASSWORD: foo
