@@ -16,7 +16,6 @@ jobs:
     with:
       image_name: ${{ vars.REPO }}/${{ vars.DOCKER_PROJETO }}-teste/${{ github.sha }}
       dockerfile: Dockerfile
-      registry: ${{ vars.REGISTRY }}
       REGISTRY_USERNAME: ${{ vars.DOCKER_USR }}
     secrets:
       REGISTRY_PASSWORD: ${{ secrets.TK_GITHUB_REGISTRY }}
