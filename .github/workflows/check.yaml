@@ -30,9 +30,10 @@ jobs:
 #        env:
         run: echo Teste de atribuicao 1030
 
-      - name: Variable content
-#        env:
-        run: echo ${{ vars.DOCKER_USR }}
+      - name: Teste de atribuicao II
+        env:
+          VAR: ${{ secrets.DOCKER_USR }}
+        run: echo ${{ env.VAR }}
 
       - name: Variable content
         if: ${{ vars.REGISTRY != '' }}
