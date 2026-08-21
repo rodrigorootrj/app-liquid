@@ -19,5 +19,7 @@ COPY --from=compile-image /app/ /app/
 COPY --from=compile-image /asset/ /asset/
 EXPOSE 5000
 ENV PATH=$PATH:/asset/bin/
+ARG ENVRONMENT
+ENV ENVRONMENT=$ENVRONMENT
 
 CMD ["/bin/sh","operador.sh"]
