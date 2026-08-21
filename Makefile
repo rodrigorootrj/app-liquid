@@ -12,7 +12,7 @@ build-debuger:
 	@docker	build . -t ${TAG}-debuger -f DockerfileDebuger
 shell: 
 	@docker run -it --rm  --mount type=bind,source="$(PWD)"/src,target=/app  -p 5001:5000 --name ${LABEL} --entrypoint /bin/sh ${TAG}
-run: 
+run: build
 	@docker run -it --rm  --mount type=bind,source="$(PWD)"/src,target=/app  -p 5001:5000 --name ${LABEL} ${TAG} /usr/local/bin/python /app/__init__.py
 stop:
 	@docker stop ${LABEL}
