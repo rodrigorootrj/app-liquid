@@ -34,7 +34,7 @@ jobs:
       - name: Teste de atribuicao II
         continue-on-error: true
         env:
-          VAR: ${{ vars.DOCKER_USR }}
+          VAR: ${{ env.DOCKER_USR }}
         run: echo $VAR
 # 
       # - name: Variable content
