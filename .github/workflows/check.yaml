@@ -32,7 +32,7 @@ jobs:
 
       - name: Teste de atribuicao II
         env:
-          VAR: ${{ secrets.DOCKER_USR }}
+          VAR: ${{ vars.DOCKER_USR }}
         run: echo ${{ env.VAR }}
 
       - name: Variable content
