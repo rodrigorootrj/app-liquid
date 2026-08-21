@@ -30,10 +30,9 @@ jobs:
 
       - name: Variable content
         env:
-          VAR: ${{ vars.REGISTRY }}
-        if: ${{ env.VAR != '' }}
-        run: echo ${{ vars.VAR }}
+        if: ${{ vars.REGISTRY != '' }}
+        run: echo ${{ vars.DOCKER_USR }}
 
       - name: Variable content
-        if: ${{ env.VAR != '' }}
+        if: ${{ vars.REGISTRY != '' }}
         run: echo ${{ vars.REGISTRY }}
