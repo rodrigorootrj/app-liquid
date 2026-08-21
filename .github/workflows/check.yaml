@@ -13,8 +13,9 @@ env:
   ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION: true
 
 jobs:
-  build-push:
+  afere_variavel:
     runs-on: ubuntu-latest
+    steps:
       - name: Check secret
         env:
           MY_SECRET: ${{ secrets.TK_GITHUB_REGISTRY }}
