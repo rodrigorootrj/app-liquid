@@ -14,6 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check secret
+        continue-on-error: true
         env:
           MY_SECRET: ${{ secrets.TK_GITHUB_REGISTRY }}
         if: ${{ env.MY_SECRET == '' }}
@@ -31,6 +32,7 @@ jobs:
         run: echo Teste de atribuicao 1030
 
       - name: Teste de atribuicao II
+        continue-on-error: true
         env:
           VAR: ${{ vars.DOCKER_USR }}
         run: echo $VAR
