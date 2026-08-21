@@ -1,0 +1,49 @@
+
+name: Docker Hub Registry
+
+on:
+  push:
+    branches:
+      - teste
+    tags:
+      - 'v*'
+  workflow_dispatch:  # Execução manual
+
+env:
+  ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION: true
+
+jobs:
+  build-push:
+    runs-on: ubuntu-latest
+      - name: Check secret
+        env:
+          MY_SECRET: ${{ secrets.TK_GITHUB_REGISTRY }}
+        if: ${{ env.MY_SECRET == '' }}
+        run: echo "MY_SECRET não existe"
+
+      - name: Secret not found
+        env:
+          MY_SECRET: ${{ secrets.TK_GITHUB_REGISTRY }}
+        if: ${{ env.MY_SECRET != '' }}
+        run: echo "MY_SECRET existe"
+
+
+      - name: Validate variables
+        env:
+          VAR1: ${{ vars.DOCKER_PROJETO }}
+          VAR2: ${{ vars.DOCKER_REPO }}
+          VAR3: ${{ vars.DOCKER_USR }}
+          VAR4: ${{ vars.REGISTRY }}
+          run: |
+            missing=0
+
+            for var in VAR1 VAR2 VAR3 VAR4; do
+              if [ -z "${!var}" ]; then
+                echo "ERROR: $var não definida"
+                missing=1
+              else
+                echo "OK: $var definida"
+              fi
+            done
+
+            exit $missing          
