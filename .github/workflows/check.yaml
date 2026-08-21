@@ -2,17 +2,9 @@
 name: Docker Hub Registry
 
 on:
-  workflow_dispatch:
-    inputs:
-      environment:
-        description: 'Target Environment'
-        required: true
-        default: 'staging'
-        type: choice
-        options:
-          - staging
-          - production
-          - teste
+  push:
+    branches:
+      - teste
 
 env:
   ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION: true
@@ -35,7 +27,6 @@ jobs:
 
       - name: Variable content
 #        env:
-        if: ${{ vars.REGISTRY != '' }}
         run: echo ${{ vars.DOCKER_USR }}
 
       - name: Variable content
