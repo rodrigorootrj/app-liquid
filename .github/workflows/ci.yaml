@@ -16,7 +16,7 @@ jobs:
     with:
       image_name: ${{ vars.DOCKER_PROJETO }}
       dockerfile: Dockerfile
-      registry: ghcr.io
+      registry: ${{ vars.REGISTRY }}
       REGISTRY_USERNAME: ${{ vars.DOCKER_USR }}
     secrets:
-      REGISTRY_PASSWORD: ${{ secrets.DOCKER_TK }}
+      REGISTRY_PASSWORD: ${{ secrets.TK_GITHUB_REGISTRY }}
