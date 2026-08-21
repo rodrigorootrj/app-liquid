@@ -36,3 +36,8 @@ jobs:
       - name: Variable content
         if: ${{ vars.REGISTRY != '' }}
         run: echo ${{ vars.REGISTRY }}
+
+      - name: Variable content
+#        env:
+        if: ${{ vars.DOCKER_PROJETO != '' }}
+        run: echo ${{ vars.DOCKER_PROJETO }}
