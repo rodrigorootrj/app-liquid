@@ -2,12 +2,16 @@
 name: Docker Hub Registry
 
 on:
-  push:
-    branches:
-      - teste
-    tags:
-      - 'v*'
-  workflow_dispatch:  # Execução manual
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Target Environment'
+        required: true
+        default: 'staging'
+        type: choice
+        options:
+          - staging
+          - production
 
 env:
   ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION: true
