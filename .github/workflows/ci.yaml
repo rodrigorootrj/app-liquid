@@ -14,7 +14,7 @@ jobs:
     uses: rodrigorootrj/pipelines-labs/.github/workflows/docker.yaml@main
 
     with:
-      image_name: ${{ vars.DOCKER_PROJETO }}
+      image_name: ${{ vars.REPO }}/${{ vars.DOCKER_PROJETO }}/${{ github.sha }}
       dockerfile: Dockerfile
       registry: ${{ vars.REGISTRY }}
       REGISTRY_USERNAME: ${{ vars.DOCKER_USR }}
