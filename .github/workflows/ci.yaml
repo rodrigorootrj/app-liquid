@@ -8,7 +8,7 @@ on:
 jobs:
 
   docker:
-    uses: rodrigorootrj/pipelines-labs/.github/workflows/teste.yaml@main
+    uses: rodrigorootrj/pipelines-labs/.github/workflows/docker.yaml@main
 
     with:
       image_name: ${{ vars.DOCKER_PROJETO }}
