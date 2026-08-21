@@ -25,6 +25,11 @@ jobs:
         if: ${{ env.MY_SECRET != '' }}
         run: echo "MY_SECRET existe"
 
+
+      - name: Teste de atribuicao
+#        env:
+        run: echo Teste de atribuicao 1030
+
       - name: Variable content
 #        env:
         run: echo ${{ vars.DOCKER_USR }}
