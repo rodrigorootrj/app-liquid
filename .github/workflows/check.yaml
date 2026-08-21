@@ -29,7 +29,7 @@ jobs:
         run: echo "MY_SECRET existe"
 
       - name: Variable content
-        env:
+#        env:
         if: ${{ vars.REGISTRY != '' }}
         run: echo ${{ vars.DOCKER_USR }}
 
