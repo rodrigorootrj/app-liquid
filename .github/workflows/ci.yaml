@@ -78,7 +78,7 @@ jobs:
           file: Dockerfile
           push: true
           tags: |
-            ${{ vars.DOCKERHUB_USERNAME }}/${{ vars.DOCKER_PROJETO }}-${{ env.DOCKER_TAG }}:${{ env.RELEASE }}
+            ${{ vars.REPO }}/${{ vars.DOCKER_PROJETO }}-${{ env.DOCKER_TAG }}:${{ env.RELEASE }}
           build-args: |
             CODE_ENV=${{ env.ENV_NAME }}
             SINATRA_LOCAL_CACHE_DEFAULT_TIMEOUT=${{ vars.SINATRA_LOCAL_CACHE_DEFAULT_TIMEOUT }}
