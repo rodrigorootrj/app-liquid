@@ -36,12 +36,3 @@ jobs:
         env:
           VAR: ${{ vars.DOCKER_USR }}
         run: echo $VAR
-# 
-      # - name: Variable content
-        # if: ${{ vars.REGISTRY != '' }}
-        # run: echo ${{ vars.REGISTRY }}
-# 
-      # - name: Variable content
-#        env:
-        # if: ${{ vars.DOCKER_PROJETO != '' }}
-        # run: echo ${{ vars.DOCKER_PROJETO }}
